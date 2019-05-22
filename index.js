@@ -82,7 +82,9 @@ function installDependencies(folder) {
     'identity-obj-proxy',
     'jest',
     'postcss-loader',
+    'postcss-import',
     'postcss-nested',
+    'postcss-simple-vars',
     'prop-types',
     'style-loader',
     'url-loader',
@@ -161,8 +163,10 @@ module.exports = {
             options: {
               sourceMap: true,
               plugins: [
+                require('postcss-import')(),
                 require('autoprefixer')(),
-                require('postcss-nested')()
+                require('postcss-nested')(),
+                require('postcss-simple-vars')()
               ]
             }
           }

@@ -113,7 +113,7 @@ function setupWebpack(folder) {
   console.log(chalk.green('Setting up webpack.config.js'));
   const webpackConfig = `
 const HtmlPlugin = require('html-webpack-plugin');
-const CleanPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // eslint-disable-next-line
 module.exports = {
@@ -127,7 +127,7 @@ module.exports = {
   },
   plugins: [
     new HtmlPlugin({ template: './src/index.html' }),
-    new CleanPlugin()
+    new CleanWebpackPlugin()
   ],
   module: {
     rules: [

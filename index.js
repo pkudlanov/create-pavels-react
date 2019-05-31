@@ -82,7 +82,9 @@ function installDependencies(folder) {
     'identity-obj-proxy',
     'jest',
     'postcss-loader',
+    'postcss-import',
     'postcss-nested',
+    'postcss-simple-vars',
     'prop-types',
     'style-loader',
     'url-loader',
@@ -113,7 +115,7 @@ function setupWebpack(folder) {
   console.log(chalk.green('Setting up webpack.config.js'));
   const webpackConfig = `
 const HtmlPlugin = require('html-webpack-plugin');
-const CleanPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // eslint-disable-next-line
 module.exports = {
@@ -122,11 +124,12 @@ module.exports = {
     filename: 'bundle.[hash].js'
   },
   devServer: {
-    port: 7890
+    port: 7890,
+    historyApiFallback: true
   },
   plugins: [
     new HtmlPlugin({ template: './src/index.html' }),
-    new CleanPlugin()
+    new CleanWebpackPlugin()
   ],
   module: {
     rules: [
@@ -160,8 +163,10 @@ module.exports = {
             options: {
               sourceMap: true,
               plugins: [
+                require('postcss-import')(),
                 require('autoprefixer')(),
-                require('postcss-nested')()
+                require('postcss-nested')(),
+                require('postcss-simple-vars')()
               ]
             }
           }

@@ -308,6 +308,7 @@ function setupSrc(folder) {
   setupIndexJs(folder);
   setupIndexHtml(folder);
   setupTests(folder);
+  setupComponents(folder);
 }
 
 function setupIndexJs(folder) {
@@ -368,6 +369,51 @@ Enzyme.configure({ adapter: new Adapter() });
   fs.writeFileSync(
     path.join(folder, 'src/setupTests.js'),
     file);
+}
+
+function setupComponents(folder) {
+  console.log(chalk.green('Setting up components'));
+
+  fs.mkdirSync(path.join(folder, 'src/components'));
+  setupApp(folder);
+  setupAppTest(folder);
+}
+
+function setupApp(folder) {
+  console.log(chalk.green('Setting up App.js'));
+
+  const App = `
+import React from 'react';
+
+export default function App() {
+  return <h1>Hello World</h1>;
+}
+  `.trimStart();
+
+  fs.writeFileSync(
+    path.join(folder, 'src/components/App.js'),
+    App);
+}
+
+function setupAppTest(folder) {
+  console.log(chalk.green('Setting up App.test.js'));
+
+  const AppTest = `
+import React from 'react';
+import { shallow } from 'enzyme';
+import App from './App';
+
+describe('App component', () => {
+  it('renders App', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper).toMatchSnapshot();
+  });
+});
+  `.trimStart();
+
+  fs.writeFileSync(
+    path.join(folder, 'src/components/App.test.js'),
+    AppTest);
 }
 
 function setupFileMock(folder) {

@@ -21,6 +21,7 @@ setupFileMock(folder);
 setupGitignore(folder);
 setupTravis(folder);
 initGit(folder);
+initTest(folder);
 
 function setupPackageJson(folder) {
   console.log(chalk.green('Setting up package.json'));
@@ -462,6 +463,16 @@ function initGit(folder) {
   console.log(chalk.green('Initializing git'));
 
   execSync('git init', {
+    cwd: folder,
+    stdio: 'inherit'
+  });
+
+}
+
+function initTest(folder) {
+  console.log(chalk.green('Initializing App.js test'));
+
+  execSync('npm run test', {
     cwd: folder,
     stdio: 'inherit'
   });

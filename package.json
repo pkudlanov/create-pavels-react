@@ -1,12 +1,12 @@
 {
-  "name": "pavels-react",
+  "name": "create-pavels-react",
   "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/pkudlanov/pavels-react"
   },
   "bin": {
-    "pavels-react": "./index.js"
+    "create-pavels-react": "./index.js"
   },
   "description": "",
   "main": "index.js",

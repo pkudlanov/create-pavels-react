@@ -1,4 +1,4 @@
-# Create Alchemy React
+# Create Pavel's React
 
 **Don't** install this package. Use `npm init` in parent directory.
 

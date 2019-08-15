@@ -16,7 +16,6 @@ setupBabel(folder);
 setupEslint(folder);
 setupSrc(folder);
 setupFileMock(folder);
-setupGitignore(folder);
 setupTravis(folder);
 initGit(folder);
 initTest(folder);

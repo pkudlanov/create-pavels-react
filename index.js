@@ -5,11 +5,9 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
-const args = process.argv;
-const folderName = args[args.length - 1];
-const folder = folderName;
-
-fs.mkdirSync(folder);
+const folder = './';
+const loc = path.resolve('./');
+const folderName = path.basename(loc);
 
 setupPackageJson(folder);
 installDependencies(folder);
@@ -27,7 +25,7 @@ function setupPackageJson(folder) {
   console.log(chalk.green('Setting up package.json'));
 
   const packageJson = {
-    name: folder,
+    name: folderName,
     version: '1.0.0',
     description: '',
     main: 'src/index.js',
@@ -429,20 +427,6 @@ module.exports = '/path/image';
   fs.writeFileSync(
     path.join(folder, '__mocks__/fileMock.js'),
     file);
-}
-
-function setupGitignore(folder) {
-  console.log(chalk.green('Setting up .gitignore'));
-
-  const file = `
-node_modules
-.env
-dist
-`.trimStart();
-  fs.writeFileSync(
-    path.join(folder, '.gitignore'),
-    file
-  );
 }
 
 function setupTravis(folder) {

@@ -1,12 +1,12 @@
 {
-  "name": "create-alchemy-react",
-  "version": "1.6.1",
+  "name": "pavels-react",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/alchemycodelab/create-alchemy-react"
+    "url": "https://github.com/pkudlanov/pavels-react"
   },
   "bin": {
-    "create-alchemy-react": "./index.js"
+    "pavels-react": "./index.js"
   },
   "description": "",
   "main": "index.js",

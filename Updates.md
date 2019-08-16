@@ -18,3 +18,12 @@ Fixed slight bug
 ### Changes
 
 1. Removed the line that called the setupGitignore function because its not needed and was undefined in that state.
+
+## Version 1.0.2
+
+Updated linting rule
+
+### Changes
+
+1. Linter doesn't yell over space after return anymore
+2. Got rid of space at the end of App component file

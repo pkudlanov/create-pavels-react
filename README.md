@@ -11,13 +11,14 @@
 2. clone github repo locally and cd into it
 3. npm init pavels-react
 
-## Updates - Version 1.0.1
+## Updates - Version 1.0.2
 
-Fixed slight bug
+Updated linting rule
 
 ### Changes
 
-1. Removed the line that called the setupGitignore function because its not needed and was undefined in that state.
+1. Linter doesn't yell over space after return anymore
+2. Got rid of space at the end of App component file
 
 ## Updating npm package *just my notes*
 

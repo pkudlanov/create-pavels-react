@@ -388,8 +388,7 @@ import React from 'react';
 
 export default function App() {
   return <h1>Hello World</h1>;
-}
-  `.trimStart();
+}`.trimStart();
 
   fs.writeFileSync(
     path.join(folder, 'src/components/App.js'),

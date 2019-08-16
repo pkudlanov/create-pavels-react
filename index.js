@@ -283,6 +283,9 @@ function setupEslint(folder) {
             },
             'catch': {
               'after': false
+            }, 
+            'return': {
+              'after': false
             }
           }
         }
